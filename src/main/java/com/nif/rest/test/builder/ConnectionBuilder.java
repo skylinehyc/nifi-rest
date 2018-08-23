@@ -1,13 +1,13 @@
-package com.exist.nifirestapi.builder;
-
-import java.util.HashSet;
-import java.util.Set;
+package com.nif.rest.test.builder;
 
 import org.apache.nifi.web.api.dto.ConnectableDTO;
 import org.apache.nifi.web.api.dto.ConnectionDTO;
 import org.apache.nifi.web.api.dto.RevisionDTO;
 import org.apache.nifi.web.api.entity.ConnectionEntity;
 import org.apache.nifi.web.api.entity.ProcessorEntity;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class ConnectionBuilder {
 
@@ -39,26 +39,26 @@ public class ConnectionBuilder {
 
     public ConnectionEntity build() {
         RevisionDTO revision = new RevisionDTO();
-			revision.setVersion(0L);
+        revision.setVersion(0L);
 
-		ConnectableDTO source = new ConnectableDTO();
-			source.setId(this.sourceId);
-			source.setGroupId(this.sourceGroupId);
-			source.setType("PROCESSOR");
+        ConnectableDTO source = new ConnectableDTO();
+        source.setId(this.sourceId);
+        source.setGroupId(this.sourceGroupId);
+        source.setType("PROCESSOR");
 
-		ConnectableDTO destination = new ConnectableDTO();
-			destination.setId(this.destinationId);
-			destination.setGroupId(this.destinationGroupId);
-			destination.setType("PROCESSOR");
+        ConnectableDTO destination = new ConnectableDTO();
+        destination.setId(this.destinationId);
+        destination.setGroupId(this.destinationGroupId);
+        destination.setType("PROCESSOR");
 
-		ConnectionDTO component = new ConnectionDTO();
-			component.setSource(source);
-			component.setDestination(destination);
-			component.setSelectedRelationships(this.connectionRelationships);
+        ConnectionDTO component = new ConnectionDTO();
+        component.setSource(source);
+        component.setDestination(destination);
+        component.setSelectedRelationships(this.connectionRelationships);
 
-		ConnectionEntity connection = new ConnectionEntity();
-			connection.setRevision(revision);
-			connection.setComponent(component);
+        ConnectionEntity connection = new ConnectionEntity();
+        connection.setRevision(revision);
+        connection.setComponent(component);
 
         return connection;
     }

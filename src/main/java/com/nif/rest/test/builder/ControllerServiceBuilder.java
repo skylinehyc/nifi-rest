@@ -1,4 +1,4 @@
-package com.exist.nifirestapi.builder;
+package com.nif.rest.test.builder;
 
 import org.apache.nifi.web.api.dto.ControllerServiceDTO;
 import org.apache.nifi.web.api.dto.RevisionDTO;
@@ -20,7 +20,7 @@ public class ControllerServiceBuilder {
     }
 
     public ControllerServiceBuilder type(String type) {
-        this.type =  type;
+        this.type = type;
         return this;
     }
 
@@ -36,17 +36,17 @@ public class ControllerServiceBuilder {
 
     public ControllerServiceEntity build() {
         RevisionDTO revision = new RevisionDTO();
-            revision.setVersion(0L);
+        revision.setVersion(0L);
 
         ControllerServiceDTO component = new ControllerServiceDTO();
-            component.setName(this.name);
-            component.setType(this.type);
-            component.setState(this.state);
-            component.setProperties(this.properties);
+        component.setName(this.name);
+        component.setType(this.type);
+        component.setState(this.state);
+        component.setProperties(this.properties);
 
         ControllerServiceEntity controllerService = new ControllerServiceEntity();
-            controllerService.setRevision(revision);
-            controllerService.setComponent(component);
+        controllerService.setRevision(revision);
+        controllerService.setComponent(component);
 
         return controllerService;
     }
