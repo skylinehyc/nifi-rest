@@ -1,6 +1,7 @@
 package com.nif.rest.test.service;
 
-import com.nif.rest.test.service.client.NifiClient;
+import com.nif.rest.test.config.NifiProperties;
+import com.nif.rest.test.service.util.NifiClient;
 import org.apache.nifi.web.api.entity.ControllerServiceEntity;
 import org.apache.nifi.web.api.entity.ControllerServiceReferencingComponentEntity;
 import org.apache.nifi.web.api.entity.ProcessorEntity;
@@ -29,6 +30,8 @@ public class ControllerServiceService {
 
     private ProcessorService processorService;
 
+    private NifiProperties nifiProperties;
+
     @Autowired
     public void setNifiClientUtil(NifiClient nifiClientUtil) {
         this.nifiClientUtil = nifiClientUtil;
@@ -37,6 +40,11 @@ public class ControllerServiceService {
     @Autowired
     public void setProcessorService(ProcessorService processorService) {
         this.processorService = processorService;
+    }
+
+    @Autowired
+    public void setNifiProperties(NifiProperties nifiProperties) {
+        this.nifiProperties = nifiProperties;
     }
 
     public ControllerServiceEntity addControllerService(ControllerServiceEntity controllerService) {
@@ -103,7 +111,7 @@ public class ControllerServiceService {
         String jdbcUrl = "jdbc:" + properties.get("databaseType") + "://" + properties.get("ip") + ":" + properties.get("port") + "/" + properties.get("database") + "?useUnicode=true&characterEncoding=utf-8";
         resolvedProperties.put("Database Connection URL", jdbcUrl);
         resolvedProperties.put("Database Driver Class Name", DATABASE_DRIVER.get(properties.get("databaseType")));
-        resolvedProperties.put("database-driver-locations", "/usr/local/nifi/nifi-standalone/nifi-1.7.1/lib/mysql-connector-java-5.1.34.jar");
+        resolvedProperties.put("database-driver-locations", nifiProperties.getDriverLocation().get(properties.get("databaseType")));
         resolvedProperties.put("Database User", properties.get("databaseUser"));
         resolvedProperties.put("Password", properties.get("password"));
         return resolvedProperties;
@@ -138,4 +146,5 @@ public class ControllerServiceService {
         resolvedProperties.put("Support Fragmented Transactions", "");
         return resolvedProperties;
     }
+
 }

@@ -1,4 +1,4 @@
-package com.nif.rest.test.builder;
+package com.nif.rest.test.service.builder;
 
 import org.apache.nifi.web.api.dto.*;
 import org.apache.nifi.web.api.entity.ProcessorEntity;

@@ -20,6 +20,11 @@ spring:
     default-property-inclusion: non_null
     deserialization.fail-on-unknown-properties: false
     generator.ignore-unknown: true
+  datasource:
+    url: jdbc:h2:file:~/.h2/testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
 
 # ===================================================================
 # Application specific properties
@@ -34,6 +39,8 @@ spring:
 nifi:
   base:
     url: http://192.168.1.7:8080/nifi-api
+  driver-location:
+    mysql: /usr/local/nifi/nifi-standalone/nifi-1.7.1/lib/mysql-connector-java-5.1.34.jar
   api-url:
     create-processors: ${nifi.base.url}/process-groups/{process-group}/processors
     create-connections: ${nifi.base.url}/process-groups/{process-group}/connections

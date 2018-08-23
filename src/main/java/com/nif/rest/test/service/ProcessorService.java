@@ -1,6 +1,6 @@
 package com.nif.rest.test.service;
 
-import com.nif.rest.test.service.client.NifiClient;
+import com.nif.rest.test.service.util.NifiClient;
 import org.apache.nifi.web.api.dto.ProcessorConfigDTO;
 import org.apache.nifi.web.api.entity.ControllerServiceEntity;
 import org.apache.nifi.web.api.entity.ProcessorEntity;

@@ -1,7 +1,7 @@
 package com.nif.rest.test.service;
 
-import com.nif.rest.test.builder.ConnectionBuilder;
-import com.nif.rest.test.service.client.NifiClient;
+import com.nif.rest.test.service.builder.ConnectionBuilder;
+import com.nif.rest.test.service.util.NifiClient;
 import org.apache.nifi.web.api.entity.ConnectionEntity;
 import org.apache.nifi.web.api.entity.ProcessGroupEntity;
 import org.apache.nifi.web.api.entity.ProcessorEntity;

@@ -1,8 +1,6 @@
 package com.nif.rest.test.service.util;
 
-import com.nif.rest.test.config.NifiProperties;
 import org.apache.nifi.web.api.entity.ComponentEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;

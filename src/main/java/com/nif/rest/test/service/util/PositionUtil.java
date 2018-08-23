@@ -1,4 +1,4 @@
-package com.nif.rest.test.util;
+package com.nif.rest.test.service.util;
 
 import org.apache.nifi.web.api.dto.PositionDTO;
 import org.apache.nifi.web.api.entity.ComponentEntity;
