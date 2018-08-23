@@ -1,0 +1,44 @@
+# ===================================================================
+# Spring Boot configuration for the "prod" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+server:
+  port: 8081
+spring:
+  jackson:
+    default-property-inclusion: non_null
+    deserialization.fail-on-unknown-properties: false
+    generator.ignore-unknown: true
+
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
+nifi:
+  base:
+    url: http://192.168.1.7:8080/nifi-api
+  api-url:
+    create-processors: ${nifi.base.url}/process-groups/{process-group}/processors
+    create-connections: ${nifi.base.url}/process-groups/{process-group}/connections
+    create-controller-services: ${nifi.base.url}/process-groups/{process-group}/controller-services
+    create-process-groups: ${nifi.base.url}/process-groups/{process-group}/process-groups
+    processors: ${nifi.base.url}/processors/{id}
+    controller-services: ${nifi.base.url}/controller-services/{id}
+    controller-service-references: ${nifi.base.url}/controller-services/{id}/references
